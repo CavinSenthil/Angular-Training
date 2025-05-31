@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Product } from '../modals/product';
-
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-product',
-  imports: [],
+  imports: [FormsModule, CommonModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
 })
@@ -15,7 +16,7 @@ export class ProductComponent {
 
   inputValue = "Testst"
   
-  product:Product = {productName: 'Cake', price: 100 , stockCount: 1, discount : 10, imgUrl:'test' }
+  product:Product = {productName: 'Cake', price: 100 , stockCount: 0, discount : 10, imgUrl:'test' }
 
 
 
