@@ -1,3 +1,8 @@
+<img [src]="product.imgUrl">
 <p>price: {{product.price}} </p>
 <p>Product Name : {{product.productName}} </p>
 <p>Stock Count : {{product.stockCount}} </p>
+<p>Discounted Price : {{ product.price - (product.discount * product.price / 100) }} </p>
+<button>Add to cart</button>
+<input [value]="inputValue" (input)="onNameChange($event)">
+<p>Name is {{inputValue}}</p>

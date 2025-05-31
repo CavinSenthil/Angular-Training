@@ -9,8 +9,19 @@ import { Product } from '../modals/product';
 })
 export class ProductComponent {
 
+
   productName:string = "Cake";
   productPrice:number = 100;
+
+  inputValue = "Testst"
   
-  product:Product = {productName: 'Cake', price: 100 , stockCount: 1 }
+  product:Product = {productName: 'Cake', price: 100 , stockCount: 1, discount : 10, imgUrl:'test' }
+
+
+
+
+  onNameChange( event: any) {
+    console.log(event)
+    this.inputValue = "Assigning from method"
+    }
 }
