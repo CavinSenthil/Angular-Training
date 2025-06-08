@@ -4,6 +4,6 @@ export interface Product {
     productName:string,
     price: number,
     stockCount: number,
-    imgUrl?: string,
-    discount: number
+    description: string,
+    imgUrl?: string
 }

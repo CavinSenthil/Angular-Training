@@ -1,68 +1,11 @@
-<img [src]="product.imgUrl">
-<p>price: {{product.price}} </p>
-<p>Product Name : {{product.productName}} </p>
-<p>Stock Count : {{product.stockCount}} </p>
-<p>Discounted Price : {{ product.price - (product.discount * product.price / 100) }} </p>
-<button>Add to cart</button>
-
-<!-- Property Binding Examples -->
-<div class="mt-3">
-  <h6>Property Binding Examples:</h6>
-  <!-- Property binding for input value -->
-  <input [value]="inputValue" (input)="onNameChange($event)">
-  <p>Name is {{inputValue}}</p>
-
-  <!-- Property binding for disabled state -->
-  <button [disabled]="product.stockCount === 0">Add to Cart</button>
-
-  <!-- Property binding for class -->
-  <div [class.text-danger]="product.stockCount === 0">
-    Stock Status
+<div class="card" style="width: h-100;">
+  <img [src]="product.imgUrl" class="card-img-top" [alt]="product.imgUrl" style="height: 200px; object-fit: cover;">
+  <div class="card-body">
+    <h5 class="card-title">{{product.productName}}</h5>
+    <p class="card-text"><strong>Price: {{product.price}} </strong></p>
+    <p class="card-text"><strong>Description: {{product.description}} </strong></p>
+    <p class="card-text"><strong> Count: {{product.stockCount}} </strong></p>
+    <button href="#" class="btn btn-success w-100" 
+    [disabled]="product.stockCount === 0" (click)="addToCart()">Add to cart</button>
   </div>
 </div>
-
-<!-- Attribute Binding Examples -->
-<div class="mt-3">
-  <h6>Attribute Binding Examples:</h6>
-  <!-- Attribute binding for table cell -->
-  <table class="table">
-    <tr>
-      <td [attr.colspan]="product.stockCount > 0 ? 2 : 1">
-        Product Details
-      </td>
-    </tr>
-  </table>
-
-  <!-- Attribute binding for aria-label -->
-  <button [attr.aria-label]="'Add ' + product.productName + ' to cart'">
-    Add to Cart
-  </button>
-
-  <!-- Attribute binding for data attributes -->
-  <!-- <div [attr.data-product-id]="product.id">
-    Product ID: {{product.id}}
-  </div>
-</div> -->
-
-<div *ngFor="let item of [1,2,3,4,5]">
-    <p> Counting item numbers : {{item}}</p>
-</div>
-
-<div [ngSwitch]="product.stockCount">
-    <p *ngSwitchCase="0">Product is out of stock</p>
-    <p *ngSwitchCase="1">Only 1 item left in stock</p>
-    <p *ngSwitchCase="2">Only 2 items left in stock</p>
-    <p *ngSwitchCase="3">Only 3 items left in stock</p>
-    <p *ngSwitchCase="4">Only 4 items left in stock</p>
-    <p *ngSwitchDefault>More than 4 items in stock</p>
-</div>
-
-<div *ngIf="product.stockCount > 0">
-    <p>Product is in stock</p>
-</div>
-
-<div *ngIf="product.stockCount <= 0">
-    <p>Product is out of stock</p>
-</div>
-<!-- 
-types of directives Component, Structural, Attribute -->
